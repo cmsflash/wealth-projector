@@ -160,3 +160,14 @@ class Portfolio:
     def deflated_value(self):
         value = self.total_value() / self.inflation.value
         return value
+
+    def __str__(self):
+        string = (
+            f'{format_worth("Income", self.total_income())}\n'
+            f'{format_worth("Investment return", self.investment_return())}\n'
+            f'{format_worth("Asset growth", self.asset_growth())}\n'
+            f'{format_worth("Spending", self.spending())}\n'
+            f'{format_worth("Net worth", self.total_value())}\n'
+            f'{format_worth("After inflation", self.deflated_value())}'
+        )
+        return string
